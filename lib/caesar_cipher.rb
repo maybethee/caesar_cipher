@@ -1,3 +1,5 @@
+#lib/caesar_cipher.rb
+
 # 1. take string and desired shift facor
 def caesar_cipher(string, shift_factor)
   # create arrays to zip into Hash
@@ -46,6 +48,7 @@ def caesar_cipher(string, shift_factor)
  
   # 6. return newly encrypted array as a string
   puts ciphered_str.join.capitalize
+  return ciphered_str.join.capitalize
 end
  
 caesar_cipher("Does this work?", 4)
