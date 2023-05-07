@@ -34,7 +34,7 @@ def wrap_alphabet(shifted_str_num)
 end
 
 def num_to_char(shifted_str_num, char_num_hash)
-  
+
   # 4. convert the new numbers back into letters
   shifted_str_num.map do |index|
     index.is_a?(Integer) ? char_num_hash.key(index) : index
