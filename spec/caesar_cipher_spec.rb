@@ -14,5 +14,13 @@ describe "#caesar_cipher" do
   it "ignores punctuation" do
     expect(caesar_cipher('Hello world...?', 10)).to match(/Rovvy gybvn...?/)
   end
+
+  it "doesn't break with a shift factor over 25" do
+    expect(caesar_cipher('Hello world', 26)).to match(/Hello world/)
+  end
+
+  it "doesn't break with a shift factor over 26" do
+    expect(caesar_cipher('Hello world', 27)).to match(/Ifmmp xpsme/)
+  end
 end
 
