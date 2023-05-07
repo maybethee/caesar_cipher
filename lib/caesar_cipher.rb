@@ -1,5 +1,17 @@
 #lib/caesar_cipher.rb
 
+# * * * * * * * * * * * * * * * * * * *
+
+# print tests (insert in #caesar_cipher)
+
+# p "str_num = #{str_num}"
+# p "shifted_str_num = #{shifted_str_num}"
+# p "wrap_alphabet = #{wrap_alphabet(shifted_str_num)}"
+# p "ciphered_str = #{ciphered_str}"
+
+# * * * * * * * * * * * * * * * * * * *
+
+
 # create arrays to zip into Hash
 def create_hash
   chars = ('a'..'z').to_a
@@ -27,9 +39,15 @@ end
 
 def wrap_alphabet(shifted_str_num)
 
-  # 3.5 wrap z to a
+  # 3.5 wrap z to a (and a to z)
   shifted_str_num.map! do |num|
-    num.is_a?(Integer) && num > 26 ? num - 26 : num
+    if num.is_a?(Integer) && num > 26
+      num - 26
+    elsif num.is_a?(Integer) && num.negative?
+      num + 26
+    else
+      num
+    end
   end
 end
 
@@ -59,9 +77,16 @@ def caesar_cipher(string, shift_factor)
   ciphered_str.join.capitalize
 end
 
-caesar_cipher("Does this work?", 4)
-caesar_cipher("It works with normal capitalization...", 20)
-caesar_cipher("Eat my shorts!", 13)
-caesar_cipher("Zap attack", 25)
+# caesar_cipher("Does this work?", 4)
+# caesar_cipher("It works with normal capitalization...", 20)
+# caesar_cipher("Eat my shorts!", 13)
+# caesar_cipher("Zap attack", 25)
+
+
+
+
+
+
+# * * * * * * * * * * * * * * * * * * *
 
 # note to self: after looking at the solutions it seems like i really should have just done this with ascii instead of craeting a new hash, since it might have turned out to be a bit simpler/minimal codewise but also it would have made it much easier to convert strings with different capitalization appropriately... and otherwise there obviously seems to be ways i could have simplified the logic using techniques i eitther don't understand fully or just didn't think to use, but i think that's okay being that this is my first, albeit, small ruby project
